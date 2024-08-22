@@ -1,0 +1,16 @@
+/* Add these lines to your global CSS file */
+@import "slick-carousel/slick/slick.css";
+@import "slick-carousel/slick/slick-theme.css";
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html{
+    scroll-behavior: smooth;
+}
+.Container{
+    padding: 0 15%;
+}
