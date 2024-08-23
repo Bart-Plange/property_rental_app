@@ -24,14 +24,8 @@ const Properties = () => {
             <div className="p-4">
               <h2 className="text-lg font-semibold mb-2">{property.title}</h2>
               <p className="text-gray-600 mb-4">{property.description}</p>
-              <p className="text-gray-500 mb-2">Rooms: {property.rooms}</p>
-              <p className="text-gray-500">Size: {property.size}</p>
-              <Link
-                to={`/properties/${property.id}`} 
-                className="text-red-500 hover:underline mt-4 inline-block"
-              >
-                View Details
-              </Link>
+              <p className="text-gray-500 mb-2">Rooms: {property.beds}</p>
+              <p className="text-gray-500">Size: {property.area} sqr</p>
             </div>
           </div>
         ))}

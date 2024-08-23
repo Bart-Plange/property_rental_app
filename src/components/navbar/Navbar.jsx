@@ -1,4 +1,3 @@
-// src/components/NavBar.jsx
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -30,7 +29,7 @@ const Navbar = () => {
         {/* Logo */}
         <div className="text-white text-2xl font-bold flex">
           <Link className='flex' to="/">
-          <img className='w-10 h-10 bg-cover' src="/logo1.png" alt="logo" />
+            <img className='w-10 h-10 bg-cover' src="/logo1.png" alt="logo" />
           </Link>
         </div>
 
@@ -56,7 +55,10 @@ const Navbar = () => {
         </button>
 
         {/* Menu Items */}
-        <div className={`lg:flex flex-grow items-center justify-center lg:justify-end ${isOpen ? 'block' : 'hidden'}`}>
+        <div 
+          className={`lg:flex flex-grow items-center justify-center lg:justify-end ${isOpen ? 'block bg-gray-800 bg-opacity-90 backdrop-blur-md' : 'hidden'}`}
+          style={{ position: 'absolute', top: '100%', left: 0, right: 0 }}
+        >
           <ul className="flex flex-col lg:flex-row lg:space-x-6 space-y-4 lg:space-y-0">
             <li>
               <Link

@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { FaUser, FaEnvelope, FaPhone, FaCalendar, FaClock, FaPen } from 'react-icons/fa';
-import emailjs from 'emailjs-com';
+import axios from 'axios';
 
 const Appointment = () => {
   const location = useLocation();
@@ -15,33 +15,29 @@ const Appointment = () => {
   const [message, setMessage] = useState(property ? `Booking for ${property.title} at ${property.location}` : '');
   const [confirmation, setConfirmation] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const templateParams = {
-      name,
-      email,
-      phone,
-      date,
-      time,
-      message,
-      // Include property details in the email
-      propertyTitle: property?.title || '',
-      propertyLocation: property?.location || '',
-      propertyPrice: property?.price || '',
-      propertyDescription: property?.description || '',
-    };
-
-    emailjs
-      .send('SERVICE_ID', 'TEMPLATE_ID', templateParams, 'USER_ID')
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        setConfirmation('Your appointment has been booked successfully. A confirmation email has been sent.');
-      })
-      .catch((error) => {
-        console.error('FAILED...', error);
-        setConfirmation('Failed to book the appointment. Please try again.');
+    try {
+      const response = await axios.post('http://localhost:5000/book-appointment', {
+        name,
+        email,
+        phone,
+        date,
+        time,
+        message,
+        propertyTitle: property?.title || '',
+        propertyLocation: property?.location || '',
+        propertyPrice: property?.price || '',
+        propertyDescription: property?.description || '',
       });
+
+      console.log('SUCCESS!', response.status, response.data);
+      setConfirmation('Your appointment has been booked successfully. A confirmation email has been sent.');
+    } catch (error) {
+      console.error('FAILED...', error);
+      setConfirmation('Failed to book the appointment. Please try again.');
+    }
 
     // Clear form fields after submission
     setName('');
