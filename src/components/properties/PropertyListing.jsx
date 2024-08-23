@@ -67,7 +67,7 @@ const PropertyListing = () => {
               <h3 className="text-lg font-semibold">{property.title}</h3>
               <p className="text-sm text-gray-500">{property.location}</p>
               <div className="flex items-center text-gray-500 mt-2">
-                <FaBed className="mr-1" /> {property.rooms} Rooms 
+                <FaBed className="mr-1" /> {property.beds}bedroom 
                 <span className="ml-4"><FaBath className="mr-1" /> {property.baths} Baths</span>
                 <span className="ml-4"><FaRulerCombined className="mr-1" /> {property.size} sqft</span>
               </div>

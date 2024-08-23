@@ -51,9 +51,11 @@ const Hero = () => {
           >
             Buy
           </Link>
-          <button className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-full">
-            Book
-          </button>
+          <Link 
+          to="/contact#booking"
+          className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-full">
+            Booking
+          </Link>
           <Link
             to="/mortgage"
             className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-full"
