@@ -27,9 +27,9 @@ const Navbar = () => {
     >
       <div className="container mx-auto p-4 flex justify-between items-center">
         {/* Logo */}
-        <div className="text-white text-2xl font-bold flex">
-          <Link className='flex' to="/">
-            <img className='w-10 h-10 bg-cover' src="/logo1.png" alt="logo" />
+        <div className="text-white text-2xl font-bold">
+          <Link className="flex items-center" to="/">
+            <img className="w-10 h-10 bg-cover" src="/logo1.png" alt="logo" />
           </Link>
         </div>
 
@@ -56,10 +56,9 @@ const Navbar = () => {
 
         {/* Menu Items */}
         <div 
-          className={`lg:flex flex-grow items-center justify-center lg:justify-end ${isOpen ? 'block bg-gray-800 bg-opacity-90 backdrop-blur-md' : 'hidden'}`}
-          style={{ position: 'absolute', top: '100%', left: 0, right: 0 }}
+          className={`lg:flex items-center lg:space-x-6 ${isOpen ? 'block bg-gray-800 bg-opacity-90 backdrop-blur-md lg:bg-transparent' : 'hidden'}`}
         >
-          <ul className="flex flex-col lg:flex-row lg:space-x-6 space-y-4 lg:space-y-0">
+          <ul className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-6">
             <li>
               <Link
                 to="/"

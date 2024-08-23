@@ -1,10 +1,10 @@
-import {Caurosel, Hero, Importance, MortgageIntro, Properties} from '../components'
+import {Hero, Importance, MortgageIntro, Properties} from '../components'
 const Homepage = () => {
   return (
-    <div>
+    <div className='flex flex-col'>
         <Hero/>
         <Properties/>
-        <Caurosel/>
+        {/* <Caurosel/> */}
         <Importance/>
         <MortgageIntro/>
     </div>

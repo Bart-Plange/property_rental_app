@@ -3,7 +3,7 @@ import { FaWifi, FaHeadset, FaShieldAlt, FaTree } from 'react-icons/fa';
 const ImportanceSection = () => {
   return (
     <div className="bg-gray-100 py-12">
-      <div className="Container mx-auto px-4 flex flex-col lg:flex-row">
+      <div className="container mx-auto px-4 flex flex-col lg:flex-row">
         {/* Left Side - Large Text */}
         <div className="lg:w-1/2 flex items-center justify-center lg:justify-start text-center lg:text-left">
           <div>
@@ -28,7 +28,7 @@ const ImportanceSection = () => {
       </div>
       {/* Bottom Section - Home Features */}
       <div className="bg-white py-6 mt-12">
-        <div className="Container mx-auto px-4 flex flex-col lg:flex-row justify-around items-center">
+        <div className="container mx-auto px-4 flex flex-col lg:flex-row justify-around items-center">
           <div className="flex items-center space-x-2">
             <FaWifi className="text-red-500 text-2xl" />
             <span className="text-lg">High-Speed WiFi</span>

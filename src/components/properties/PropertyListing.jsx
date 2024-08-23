@@ -51,7 +51,8 @@ const PropertyListing = () => {
         />
       </div>
 
-      <div className="grid grid-cols-3 gap-6">
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredProperties.map(property => (
           <div
             key={property.id}
@@ -67,7 +68,7 @@ const PropertyListing = () => {
               <h3 className="text-lg font-semibold">{property.title}</h3>
               <p className="text-sm text-gray-500">{property.location}</p>
               <div className="flex items-center text-gray-500 mt-2">
-                <FaBed className="mr-1" /> {property.beds}bedroom 
+                <FaBed className="mr-1" /> {property.beds} bedroom
                 <span className="ml-4"><FaBath className="mr-1" /> {property.baths} Baths</span>
                 <span className="ml-4"><FaRulerCombined className="mr-1" /> {property.size} sqft</span>
               </div>

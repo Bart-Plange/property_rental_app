@@ -1,16 +1,15 @@
-
 import { FaCalculator, FaMoneyBillWave, FaHome, FaChartLine } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import backgroundImage from '../../assets/homeImages/mortgageintro.jpg'; // Replace with your image path
+import backgroundImage from '../../assets/homeImages/mortgageintro.jpg';
 
 const MortgageIntroduction = () => {
   return (
     <div
-      className="relative h-screen bg-cover bg-center"
+      className="relative min-h-screen bg-cover bg-center flex items-center justify-center"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <div className="Container absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
-        <div className="text-center text-white mb-8 px-4">
+      <div className="Container min-w-full min-h-screen bg-black bg-opacity-50 flex flex-col justify-center items-center px-4">
+        <div className="text-center text-white mb-8">
           <h1 className="text-3xl lg:text-4xl font-bold mb-4">
             Calculate Your Mortgage Easily
           </h1>
@@ -19,7 +18,7 @@ const MortgageIntroduction = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8 px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <div className="flex flex-col items-center text-center p-4 bg-white rounded-lg shadow-md">
             <FaCalculator className="text-red-500 text-3xl mb-2" />
             <h2 className="text-xl font-semibold mb-2">Easy Calculation</h2>
@@ -50,7 +49,7 @@ const MortgageIntroduction = () => {
           </div>
         </div>
 
-        <div className="text-center px-4">
+        <div className="text-center">
           <Link
             to="/mortgage" 
             className="px-6 py-3 bg-red-500 hover:bg-red-600 text-white rounded-full text-lg"
