@@ -17,21 +17,20 @@ const ContactPage = () => {
       <div className="container mx-auto px-4 py-10">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-          <p className="text-lg mb-2">Phone: (123) 456-7890</p>
-          <p className="text-lg mb-2">Email: contact@yourwebsite.com</p>
-          <p className="text-lg mb-2">Address: 123 Main Street, City, State, ZIP</p>
+          <p className="text-lg mb-2">Email: homefinder815@gmail.com</p>
+          <p className="text-lg mb-2">Address: Accra, Ghana</p>
         </div>
 
         {/* Forms Section */}
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Contact Form */}
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-white md:p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold mb-4">Contact Form</h2>
             <Contact />
           </div>
 
           {/* Appointment Form */}
-          <div id='booking' className="bg-white p-6 rounded-lg shadow-lg">
+          <div id='booking' className="bg-white md:p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold mb-4">Book an Appointment</h2>
             <Appointment />
           </div>

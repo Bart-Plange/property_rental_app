@@ -12,35 +12,35 @@ const Contact = () => {
 
   const validate = () => {
     const newErrors = {};
-
+  
     // Name validation
     if (!name) {
       newErrors.name = "Name is required.";
-    } else if (/[^a-zA-Z\s]/.test(name)) {
-      newErrors.name = "Name cannot contain numbers or special characters.";
+    } else if (/[^a-zA-Z\s-]/.test(name)) {
+      newErrors.name = "Name cannot contain numbers or special characters except hyphens.";
     }
-
+  
     // Email validation
     if (!email) {
       newErrors.email = "Email is required.";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = "Email address is invalid.";
     }
-
+  
     // Subject validation
     if (!subject) {
       newErrors.subject = "Subject is required.";
     }
-
+  
     // Message validation
     if (!message) {
       newErrors.message = "Message is required.";
     }
-
+  
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
 

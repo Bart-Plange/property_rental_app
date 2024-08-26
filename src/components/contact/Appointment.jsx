@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { FaUser, FaEnvelope, FaPhone, FaCalendar, FaClock, FaPen } from 'react-icons/fa';
 import axios from 'axios';
+import emailjs from 'emailjs-com';
 
 const Appointment = () => {
   const location = useLocation();
@@ -18,7 +19,25 @@ const Appointment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Get the current date and time
+    const currentDate = new Date();
+    const selectedDate = new Date(date);
+    const selectedTime = parseInt(time.split(':')[0]); // Get the hour part of the selected time
+
+    // Date validation: Check if the selected date is not in the past
+    if (selectedDate < currentDate.setHours(0, 0, 0, 0)) {
+      setConfirmation('You cannot book an appointment for a past date.');
+      return;
+    }
+
+    // Time validation: Check if the selected time is between 6 AM and 7 PM
+    if (selectedTime < 6 || selectedTime >= 19) {
+      setConfirmation('Appointments can only be booked between 6 AM and 7 PM.');
+      return;
+    }
+
     try {
+      // Save appointment data to the database
       const response = await axios.post('http://localhost:5000/book-appointment', {
         name,
         email,
@@ -33,7 +52,30 @@ const Appointment = () => {
       });
 
       console.log('SUCCESS!', response.status, response.data);
+
+      // Send confirmation email using EmailJS
+      const templateParams = {
+        name,
+        email,
+        phone,
+        date,
+        time,
+        message,
+        propertyTitle: property?.title || '',
+        propertyLocation: property?.location || '',
+        propertyPrice: property?.price || '',
+        propertyDescription: property?.description || '',
+      };
+
+      await emailjs.send(
+        'service_tkj66s4', // Replace with your EmailJS Service ID
+        'template_u39m90u', // Replace with your EmailJS Booking Template ID
+        templateParams,
+        'lMFkvtlJS_dXGHzb4' // Replace with your EmailJS User ID
+      );
+
       setConfirmation('Your appointment has been booked successfully. A confirmation email has been sent.');
+
     } catch (error) {
       console.error('FAILED...', error);
       setConfirmation('Failed to book the appointment. Please try again.');

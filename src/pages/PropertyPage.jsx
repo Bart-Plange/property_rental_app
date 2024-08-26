@@ -13,8 +13,8 @@ const PropertyPage = () => {
     <div className="bg-gray-100 relative">
       {/* Hero Section */}
       <div
-        className="h-96 bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
+        className="h-96 bg-cover h-80 bg-center flex items-center justify-center"
+        style={{ backgroundImage: `url(${backgroundImage})` }} 
       >
         <h1 className="text-5xl font-bold text-white">Find Your Dream Property</h1>
       </div>
@@ -31,15 +31,17 @@ const PropertyPage = () => {
         </div>
 
         {/* Property Listing and Map Section */}
-        <div className="relative grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <h2 className="text-3xl font-bold mb-6">Properties</h2>
-            <PropertyListing searchQuery={searchQuery} />
-          </div>
+        <div className="relative">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2">
+              <h2 className="text-3xl font-bold mb-6">Properties</h2>
+              <PropertyListing searchQuery={searchQuery} />
+            </div>
 
-          {/* Map Section */}
-          <div className="lg:col-span-1 lg:sticky lg:top-32 lg:right-0 lg:w-1/3 h-screen overflow-y-auto p-4 lg:static">
-            <Map />
+            {/* Sticky Map Section */}
+            <div className="lg:col-span-1 fixed top-32 right-0 w-1/3 h-screen overflow-y-auto p-4">
+              <Map />
+            </div>
           </div>
         </div>
       </div>
